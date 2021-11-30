@@ -3,8 +3,10 @@
 #include "parser.tab.hpp"
 using namespace output;
 %}
+
 %option yylineno
 %option noyywrap
+
 %%
 void                          return VOID;
 int                           return INT;

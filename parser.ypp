@@ -1,6 +1,6 @@
 %{
-	using namespace output;
 	#include "output.hpp"
+	using namespace output;
 	extern int yylineno;
 	int yyerror(const char * message);
     extern int yylex();
