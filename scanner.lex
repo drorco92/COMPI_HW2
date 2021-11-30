@@ -3,12 +3,9 @@
 #include "parser.tab.hpp"
 using namespace output;
 %}
-
 %option yylineno
 %option noyywrap
-
 %%
-
 void                        return VOID;
 int                         return INT;
 byte                        return BYTE;
@@ -38,12 +35,9 @@ continue                    return CONTINUE;
 [a-zA-Z][a-zA-Z0-9]*        return ID;
 0|[1-9][0-9]*               return NUM;
 "([^\n\r\"\\]|\\[rnt"\\])+" return STRING;
-
 /* Whitespaces */
 [\t\r\n ]                   ;
 \/\/[^\r\n]*(\r|\n|\r\n)?   ;
-
 /* Error */
 .                           {errorLex(yylineno); exit(1);}
-
 %%
