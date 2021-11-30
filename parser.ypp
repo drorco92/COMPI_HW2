@@ -45,8 +45,8 @@ RetType        : Type                                                         {p
                | VOID                                                         {printProductionRule(6);}
 Formals        :                                                              {printProductionRule(7);}
                | FormalsList                                                  {printProductionRule(8);}
-FormalsList    : FormalsDecl                                                  {printProductionRule(9);}
-               | FormalsDecl COMMA FormalsList                                {printProductionRule(10);}
+FormalsList    : FormalDecl                                                   {printProductionRule(9);}
+               | FormalDecl COMMA FormalsList                                 {printProductionRule(10);}
 FormalDecl     : TypeAnnotation Type ID                                       {printProductionRule(11);}
 Statements     : Statement                                                    {printProductionRule(12);}
                | Statements Statement                                         {printProductionRule(13);}
