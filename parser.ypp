@@ -12,29 +12,32 @@
 %token B;
 %token BOOL;
 %token CONST;
-%token AND;
-%token OR;
-%token NOT;
 %token TRUE;
 %token FALSE;
 %token RETURN;
 %token IF;
-%token ELSE;
 %token WHILE;
 %token BREAK;
 %token CONTINUE;
 %token SC;
 %token COMMA;
-%token LPAREN;
-%token RPAREN;
 %token LBRACE;
 %token RBRACE;
-%token ASSIGN;
-%token RELOP;
-%token BINOP;
 %token ID;
 %token NUM;
 %token STRING;
+
+%right ASSIGN
+%left AND
+%left OR
+%left RELOP_EQUAL
+%nonassoc RELOP
+%left BINOP_ADD
+%left BINOP_MULTIPLY
+%right NOT
+%nonassoc RPAREN
+%nonassoc LPAREN
+%nonassoc ELSE
 
 %%
 Program        : Funcs                                                        {printProductionRule(1);}
@@ -72,7 +75,8 @@ Type           : INT                                                          {p
 TypeAnnotation :                                                              {printProductionRule(33);}
                | CONST                                                        {printProductionRule(34);}
 Exp            : LPAREN Exp RPAREN                                            {printProductionRule(35);}
-               | Exp BINOP Exp                                                {printProductionRule(36);}
+               | Exp BINOP_ADD Exp                                            {printProductionRule(35);}
+               | Exp BINOP_MULTIPLY Exp                                       {printProductionRule(35);}
                | ID                                                           {printProductionRule(37);}
                | Call                                                         {printProductionRule(38);}
                | NUM                                                          {printProductionRule(39);}
@@ -83,7 +87,8 @@ Exp            : LPAREN Exp RPAREN                                            {p
                | NOT Exp                                                      {printProductionRule(44);}
                | Exp AND Exp                                                  {printProductionRule(45);}
                | Exp OR Exp                                                   {printProductionRule(46);}
-               | Exp RELOP Exp                                                {printProductionRule(47);}
+               | Exp RELOP_EQUAL Exp                                          {printProductionRule(46);}
+               | Exp RELOP Exp                                                {printProductionRule(46);}
                | LPAREN TypeAnnotation Type RPAREN Exp                        {printProductionRule(48);}
 
 %%
