@@ -75,8 +75,8 @@ Type           : INT                                                          {p
 TypeAnnotation :                                                              {printProductionRule(33);}
                | CONST                                                        {printProductionRule(34);}
 Exp            : LPAREN Exp RPAREN                                            {printProductionRule(35);}
-               | Exp BINOP_ADD Exp                                            {printProductionRule(35);}
-               | Exp BINOP_MULTIPLY Exp                                       {printProductionRule(35);}
+               | Exp BINOP_ADD Exp                                            {printProductionRule(36);}
+               | Exp BINOP_MULTIPLY Exp                                       {printProductionRule(36);}
                | ID                                                           {printProductionRule(37);}
                | Call                                                         {printProductionRule(38);}
                | NUM                                                          {printProductionRule(39);}
@@ -87,8 +87,8 @@ Exp            : LPAREN Exp RPAREN                                            {p
                | NOT Exp                                                      {printProductionRule(44);}
                | Exp AND Exp                                                  {printProductionRule(45);}
                | Exp OR Exp                                                   {printProductionRule(46);}
-               | Exp RELOP_EQUAL Exp                                          {printProductionRule(46);}
-               | Exp RELOP Exp                                                {printProductionRule(46);}
+               | Exp RELOP_EQUAL Exp                                          {printProductionRule(47);}
+               | Exp RELOP Exp                                                {printProductionRule(47);}
                | LPAREN TypeAnnotation Type RPAREN Exp                        {printProductionRule(48);}
 
 %%
