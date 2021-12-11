@@ -28,8 +28,8 @@
 %token STRING;
 
 %right ASSIGN
-%left AND
 %left OR
+%left AND
 %left RELOP_EQUAL
 %nonassoc RELOP
 %left BINOP_ADD
@@ -41,13 +41,13 @@
 
 %%
 Program        : Funcs                                                        {printProductionRule(1);}
-Funcs          :                                                              {printProductionRule(2);}
-               | FuncDecl Funcs                                               {printProductionRule(3);}
+Funcs          : FuncDecl Funcs                                               {printProductionRule(3);}
+               |                                                              {printProductionRule(2);}
 FuncDecl       : RetType ID LPAREN Formals RPAREN LBRACE Statements RBRACE    {printProductionRule(4);}
 RetType        : Type                                                         {printProductionRule(5);}
                | VOID                                                         {printProductionRule(6);}
-Formals        :                                                              {printProductionRule(7);}
-               | FormalsList                                                  {printProductionRule(8);}
+Formals        : FormalsList                                                  {printProductionRule(8);}
+               |                                                              {printProductionRule(7);}
 FormalsList    : FormalDecl                                                   {printProductionRule(9);}
                | FormalDecl COMMA FormalsList                                 {printProductionRule(10);}
 FormalDecl     : TypeAnnotation Type ID                                       {printProductionRule(11);}
@@ -72,8 +72,8 @@ ExpList        : Exp                                                          {p
 Type           : INT                                                          {printProductionRule(30);}
                | BYTE                                                         {printProductionRule(31);}
                | BOOL                                                         {printProductionRule(32);}
-TypeAnnotation :                                                              {printProductionRule(33);}
-               | CONST                                                        {printProductionRule(34);}
+TypeAnnotation : CONST                                                        {printProductionRule(34);}
+               |                                                              {printProductionRule(33);}
 Exp            : LPAREN Exp RPAREN                                            {printProductionRule(35);}
                | Exp BINOP_ADD Exp                                            {printProductionRule(36);}
                | Exp BINOP_MULTIPLY Exp                                       {printProductionRule(36);}
