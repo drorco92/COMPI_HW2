@@ -6,26 +6,26 @@
     extern int yylex();
 %}
 
-%token VOID;
-%token INT;
-%token BYTE;
-%token B;
-%token BOOL;
-%token CONST;
-%token TRUE;
-%token FALSE;
-%token RETURN;
-%token IF;
-%token WHILE;
-%token BREAK;
-%token CONTINUE;
-%token SC;
-%token COMMA;
-%token LBRACE;
-%token RBRACE;
-%token ID;
-%token NUM;
-%token STRING;
+%token VOID
+%token INT
+%token BYTE
+%token B
+%token BOOL
+%token CONST
+%token TRUE
+%token FALSE
+%token RETURN
+%token IF
+%token WHILE
+%token BREAK
+%token CONTINUE
+%token SC
+%token COMMA
+%token LBRACE
+%token RBRACE
+%token ID
+%token NUM
+%token STRING
 
 %right ASSIGN
 %left OR
